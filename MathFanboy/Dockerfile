@@ -1,9 +1,9 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/core/runtime:3.1-buster-slim AS base
+FROM docker.io/bitnami/aspnet-core AS base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+FROM docker.io/bitnami/aspnet-core AS build
 WORKDIR /src
 COPY ["MathFanboy/MathFanboy.csproj", "MathFanboy/"]
 RUN dotnet restore "MathFanboy/MathFanboy.csproj"
